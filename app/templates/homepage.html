@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>Blog Homepage</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create_article/">Create Article</a></li>
+                <li><a href="/profile/">My Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to the Let's Blog It Homepage</h1>
+        <ul>
+            {% for blog in blogs %}
+                <li>
+                    <h2>{{ blog.title }}</h2>
+                    <p>{{ blog.body }}</p>
+                    <p>Author: {{ blog.user.first_name }} {{ blog.user.last_name }}</p>
+                    <p>Published: {{ blog.timestamp }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        &copy; 2023 The Let's Blog It Movement
+    </footer>
+</body>
+</html>
